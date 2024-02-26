@@ -21,3 +21,5 @@ citations_tbl <- tibble(line = 1:length(citations_txt), cite = citations_txt) %>
   mutate(perf_ref = str_detect(cite, pattern = regex("performance", ignore_case = TRUE))) %>%
   mutate(title = str_match(cite, pattern = "\\)\\.\\s([^\\.]+[.?!])")[,2]) %>%
   mutate(first_author = str_match(cite, pattern = "\\b(\\w+,\\s[A-Z](?:\\.\\s*[A-Z])*\\.)")[,2])
+
+sum(!is.na(citations_tbl$first_author))
